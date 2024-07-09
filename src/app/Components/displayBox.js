@@ -8,8 +8,8 @@ const DisplayBox = () => {
   return (
     <div>
       <h2>{mystate}</h2>
-      <button className="p-2 m-2 bg-black text-white" onClick={() => dispatch(mySliceActions.setMyState('changed-state'))}>Change</button>
-      <button className="p-2 m-2 bg-black text-white" onClick={() => dispatch(mySliceActions.setMyState('initial-state'))}>Reset</button>
+      <button data-test="change-button" className="p-2 m-2 bg-gray-600 text-white" onClick={() => dispatch(mySliceActions.setMyState('changed-state'))}>Change</button>
+      <button data-test="reset-button" className="p-2 m-2 bg-gray-600 text-white" onClick={() => dispatch(mySliceActions.setMyState('initial-state'))}>Reset</button>
     </div>
   )
 }

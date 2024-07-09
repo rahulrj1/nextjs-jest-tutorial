@@ -5,16 +5,20 @@ import DisplayBox from '@/app/Components/displayBox';
 import store from '@/app/store';
 import { mySliceActions } from '@/app/store';
 import { configureStore } from '@reduxjs/toolkit';
+import About from '@/app/about/[param]/page';
+import { useParams, usePathname } from 'next/navigation';
 
 describe('DisplayBox Component using real store', () => {
     test('renders initial state and can change state', () => {
+        usePathname.mockReturnValue('/specific-path');
+        useParams.mockReturnValue({param: 'test'})
         
         // Dispatch action to change mystate to 'mock-state'
         store.dispatch(mySliceActions.setMyState('mock-state'));
 
         const { getByText } = render(
             <Provider store={store}>
-                <DisplayBox />
+                <About />
             </Provider>
         );
 
